@@ -6,6 +6,10 @@ var rl = readline.createInterface({
   terminal: false
 });
 
+// phone number could be (123)-123-1234, 123-123-1234, 123 123 1234, 123-123, 1234, etc etc
+
+const regexNum = ^\(?d{3}\)?[\s,*-.]?d{3}[\s,*-.]?d{4}? // this does not account for a +1 in front of the phone number
+const regexNum2 = ^\+?\d{0-3}\s?\(?d{3}\)?[\s,*-.]?d{3}[\s,*-.]?d{4}?
 
 // This code reads a line at a time from stdin
 
