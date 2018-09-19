@@ -169,6 +169,18 @@ Write a regex that matches any one or two digit number, followed by a space,
 followed by the word `monkey`, followed by 0 or 1 `s`s.
 
 
+#### Answer
+
+``` js
+let regex = /^\d{1,2}\smonkeys?$/
+
+regex.test('12 monkeys')           // true
+regex.test('1 monkey')             // true
+regex.test('123 monkeys')          // false
+regex.test('12 monkeyss')          // false
+regex.test('there are 12 monkeys') // false
+```
+
 ### Convert Regex to State Machine Diagram
 
 Draw a state machine diagram for the following regex that matches a clock time.
