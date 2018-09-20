@@ -20,4 +20,7 @@ rl.on('line', function (line) {
     // If match found, print number with no spaces, parens, or dashes
 
     // Else print that no number was found
+
 });
+// regex expression:
+// /[+]?[(]?([0-9]{3})[)]?[-\s]?([0-9]{3})[-\s]?([0-9]{4})/g
