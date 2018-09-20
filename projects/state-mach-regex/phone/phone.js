@@ -14,13 +14,13 @@ rl.on('line', function (line) {
 
     // Come up with the phone regex
     // phone number could be (123)-123-1234, 123-123-1234, 123 123 1234, 123-123, 1234, etc etc
-    const regexNum = /\(?\d{3})?\s?\(?\d{3}\)?[\s,*-.]?\d{3}[\s,*-.]?\d{4}/;
+    const regexNum = /\(?\d{3}\)?\s?\(?\d{3}\)?[\s,*-.]?\d{4}/;
 
     // Find matches
     const number = line.match(regexNum);
 
     // If match found, print number with no spaces, parens, or dashes
-    if(number === Null) {
+    if(number === null) {
       console.log("Nothing!");
 
     } else {
