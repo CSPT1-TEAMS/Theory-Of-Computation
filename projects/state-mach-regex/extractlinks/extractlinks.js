@@ -12,12 +12,16 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
-
+fs.readFile(filename, "utf8", function read(err, data) {
+    if (err) {
+        throw err;
+    }
 // Set up regex
-
+    const href = data.match(/href="...+"/g)
 // Find matches
-
+    const link = http.match(href)
 // Print all matches
-
+    console.log(link)
+})
 // regex expression:
 // /href="...+"/g
