@@ -11,6 +11,16 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
 
+
+  let phone = /^\(?(\d{3})\)?[-|.| ]?(\d{3})[-|.|\s]?(\d{4})$/
+  
+  digits = line.match(phone)
+  if (digits === null){
+    console.log('Re-Enter phone #')
+  }
+  else{
+    console.log('phone digits' + ' ' + digits[1] + digits[2] + digits[3])
+  }
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
