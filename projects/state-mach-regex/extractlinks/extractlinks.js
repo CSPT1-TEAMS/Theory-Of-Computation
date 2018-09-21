@@ -16,10 +16,12 @@ const regexURL = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/
 
 // Read file
 const website = data.match(regexURL);
+
 // Set up regex
 
 // Find matches
-for ( sites in website) {
+for ( sites of website) {
     console.log(sites);
 }
 // Print all matches
+console.log('TOTAL FOUND: ' + website.length)
