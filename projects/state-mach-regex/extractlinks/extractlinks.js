@@ -1,33 +1,27 @@
-const fs = require('fs')
+let fs = require('fs')
 
-const readfile = path =>
-      fs.readFile(path, 'utf-8', (err, data) => data)
+let readfile = path => fs.readFile(path, 'utf-8', (err, data) => data)
 
-const args = process.argv.slice(2)
+let args = process.argv.slice(2)
 
 if (args.length != 1) {
-    console.error("usage: extractlinks inputfile")
-    process.exit(1)
+  console.error("usage: extractlinks inputfile")
+  process.exit(1)
 }
 
-const filename = args[0]
+let filename = args[0]
+let regex = /https?:\/\/?[\w.-]+(com|net|org|blog)[\/[\w-]*]*[(?|&)\w+=\w+]*/g
 
-const regex = /http[s]?:\/\/[\w.]+(.com|.net)/g
+let readFile = fs.readFileSync(filename, 'utf8', (err, data) => data)
+let urls = readFile.match(regex)
 
-fs.readFile(filename, 'utf-8', (err, data) => console.log(data.match(regex)))
+// Log array of URLs:
+console.log(urls)
 
-//console.log('https://google.com',       '\n', regex.test('https://google.com'))
-//console.log('http://google.com',        '\n', regex.test('http://google.com'))
-//console.log('https://www.google.com',   '\n', regex.test('https://www.google.com'))
-//console.log('http://www.google.com',    '\n', regex.test('http://www.google.com'))
-//console.log('https://www.google.net',   '\n', regex.test('https://www.google.net'))
-//console.log('https://www.google',       '\n', regex.test('https://www.google'))
-//console.log('https://www.google',       '\n', regex.test('https://www.google'))
-//
-//console.log('https://this.that.google.com',       '\n', regex.test('https://this.that.google.com'))
+// Write each URL as a line to urls.txt
+let outputFile = 'urls.txt'
+let file = fs.createWriteStream(outputFile)
+file.on('error', () => {})
+urls.forEach(url => file.write(url + '\n'))
+file.end()
 
-// Set up regex
-
-// Find matches
-
-// Print all matches
