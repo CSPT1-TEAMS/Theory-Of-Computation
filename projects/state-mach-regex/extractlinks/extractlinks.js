@@ -1,20 +1,27 @@
-const fs = require('fs');
+let fs = require('fs')
 
-const args = process.argv.slice(2);
+let readfile = path => fs.readFile(path, 'utf-8', (err, data) => data)
+
+let args = process.argv.slice(2)
 
 if (args.length != 1) {
-    console.error("usage: extractlinks inputfile");
-    process.exit(1);
+  console.error("usage: extractlinks inputfile")
+  process.exit(1)
 }
 
-const filename = args[0];
+let filename = args[0]
+let regex = /https?:\/\/?[\w.-]+(com|net|org|blog)[\/[\w-]*]*[(?|&)\w+=\w+]*/g
 
-// !!!! IMPLEMENT ME
+let readFile = fs.readFileSync(filename, 'utf8', (err, data) => data)
+let urls = readFile.match(regex)
 
-// Read file
+// Log array of URLs:
+console.log(urls)
 
-// Set up regex
+// Write each URL as a line to urls.txt
+let outputFile = 'urls.txt'
+let file = fs.createWriteStream(outputFile)
+file.on('error', () => {})
+urls.forEach(url => file.write(url + '\n'))
+file.end()
 
-// Find matches
-
-// Print all matches
