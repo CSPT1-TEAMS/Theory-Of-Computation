@@ -18,6 +18,7 @@ const filedata = fs.readFileSync(filename, {encoding: 'utf8'});
 // Read file
 
 // Set up regex
+const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g
 
 // Find matches
 
