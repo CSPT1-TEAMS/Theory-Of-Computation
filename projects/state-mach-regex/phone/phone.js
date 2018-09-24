@@ -22,7 +22,7 @@ rl.on('line', function (line) {
     if (matches == null) {
       console.log("No number found");
     } else{
-      console.log(`${matches[1]}${matches[2]}${matches[3]}`)
+      console.log(`Area Code: ${matches[1]} \n Prefix: ${matches[2]} \n Sufix: ${matches[3]}`)
       }
     
 
